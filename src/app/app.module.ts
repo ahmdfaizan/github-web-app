@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SearchComponent } from './search/search.component';
 import { HistoryComponent } from './history/history.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ProfileCardComponent } from './profile-card/profile-card.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     DashboardComponent,
     SearchComponent,
     HistoryComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    ProfileCardComponent
   ],
   imports: [
     BrowserModule,
