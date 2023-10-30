@@ -1,0 +1,33 @@
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            background-color: #f9f8f8;
+            padding-right: 50px;
+            border-bottom: 2px solid rgb(226, 226, 226);
+
+            a:hover {
+                background-color: rgb(236, 236, 236);
+            }
+        }
+
+        .nav-link {
+            display: flex;
+            text-decoration: none;
+            color: #202020;
+            padding: 20px;
+            margin: 0px 10px;
+            width: 100px;
+            justify-content: center;
+            border-bottom: 2px solid transparent;
+            border-radius: 2px;
+        }
+
+        .active-link {
+            border-bottom: 4px solid rgb(41, 130, 255);
+        }
+
+        @media screen and (max-width: 460px) {
+            nav {
+                padding: 0px;
+            }
+        }
