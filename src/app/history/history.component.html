@@ -4,11 +4,17 @@
     <p>Search Team</p>
     <p>Search Results</p>
   </div>
-  <div class="flex-body-container">
-    <p>Faizan Zargar</p>
-    <app-profile-card class="profile-card"></app-profile-card>
+  <div
+    *ngFor="let profile of (history$ | async)?.history"
+    class="flex-body-container"
+  >
+    <p>{{ profile.user_name }}</p>
+    <app-profile-card
+      class="profile-card"
+      [profile]="profile"
+    ></app-profile-card>
   </div>
   <div class="search-button">
-    <input type="button" value="Clear Browser History" />
+    <input type="button" value="Clear Browser History" (click)="clearHistory()" />
   </div>
 </div>

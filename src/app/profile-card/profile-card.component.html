@@ -1,12 +1,12 @@
-<div>
-  <div class="profile-card-items">
+<a href="{{ profile.profile_link }}">
+  <div class="profile-card-item">
     <div>
       <p>User Image</p>
-      <img src="../../assets/default-profile-pic.png" />
+      <img src="{{ profile.profile_pic }}" />
     </div>
     <div>
       <P>GitHub User Name</P>
-      <p class="fullname">Faizan Zargar</p>
+      <p class="fullname">{{ profile.user_name }}</p>
     </div>
   </div>
-</div>
+</a>

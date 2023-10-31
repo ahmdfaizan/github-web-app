@@ -2,8 +2,11 @@
   <div class="flex-dash-sub-conatiner">
     <app-search></app-search>
     <p>Search Results</p>
-    <div class="profile-card">
-      <app-profile-card></app-profile-card>
+    <div
+      *ngFor="let profile of (history$ | async)?.history"
+      class="profile-card"
+    >
+      <app-profile-card [profile]="profile"></app-profile-card>
     </div>
   </div>
 </div>

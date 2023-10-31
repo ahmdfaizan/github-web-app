@@ -4,18 +4,22 @@
     padding-top: 10vh;
     // background-color: rgb(2, 2, 1); //FOCUS COLOR
 }
+
 .flex-dash-sub-conatiner {
     display: block;
     justify-content: center;
     align-self: center;
     width: fit-content;
+
     // background-color: rgb(205, 222, 59); //FOCUS COLOR
-    > p {
+    >p {
         font-size: 1.3vw;
         color: rgb(117, 117, 117);
-        padding: 10px 0px ;
+        padding: 10px 0px;
     }
 }
-.profile-card{
-        outline: 1px solid rgb(190, 190, 190);
+
+.profile-card {
+    outline: 1px solid rgb(190, 190, 190);
+    border-radius: 5px;
 }

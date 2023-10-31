@@ -9,7 +9,9 @@ import { HistoryComponent } from './history/history.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ProfileCardComponent } from './profile-card/profile-card.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import { NgxsModule } from '@ngxs/store';
+import { HistoryState } from './store/states/profile.state';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,9 +24,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgxsModule.forRoot([HistoryState]),
+    NgxsReduxDevtoolsPluginModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
