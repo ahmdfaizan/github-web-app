@@ -1,0 +1,27 @@
+div.profile-card-items {
+    display: flex;
+    flex-direction: row;
+    //  background-color: purple; //FOCUS COLOR
+    border-radius: 5px;
+    color: red;
+
+    >div {
+        padding: 10px;
+    }
+
+    >div>p {
+        padding: 10px;
+        color: rgb(117, 117, 117);
+    }
+
+    >div>img {
+        padding: 10px;
+        width: 100px;
+        height: 100px;
+    }
+
+}
+
+.fullname {
+    font-weight: bold;
+}
