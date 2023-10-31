@@ -10,8 +10,11 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ProfileCardComponent } from './profile-card/profile-card.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxsModule } from '@ngxs/store';
-import { HistoryState } from './store/states/profile.state';
+import { HistoryState } from './store/states/history.state';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { ProfileState } from './store/states/profile.state';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,16 +22,18 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
     SearchComponent,
     HistoryComponent,
     UserProfileComponent,
-    ProfileCardComponent
+    ProfileCardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    NgxsModule.forRoot([HistoryState]),
-    NgxsReduxDevtoolsPluginModule.forRoot()
+    NgxsModule.forRoot([HistoryState, ProfileState]),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

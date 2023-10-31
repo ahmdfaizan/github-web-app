@@ -2,11 +2,12 @@
   <div class="profile-card-item">
     <div>
       <p>User Image</p>
-      <img src="{{ profile.profile_pic }}" />
+      <img src="{{ profile.profile_pic }}"
+        onerror="this.src=`https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png`;" />
     </div>
     <div>
       <P>GitHub User Name</P>
-      <p class="fullname">{{ profile.user_name }}</p>
+      <p class="fullname">{{ profile.user_name | titlecase }}</p>
     </div>
   </div>
 </a>

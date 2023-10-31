@@ -1,10 +1,11 @@
 a {
     text-decoration: none;
 }
+
 div.profile-card-item {
     display: flex;
     flex-direction: row;
-    //  background-color: purple; //FOCUS COLOR
+
     >div {
         padding: 10px;
     }

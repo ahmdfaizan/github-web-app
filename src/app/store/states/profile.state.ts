@@ -3,40 +3,28 @@ import { Action, State, StateContext } from '@ngxs/store';
 import { Profile } from 'src/app/model/profile.model';
 import { ProfileActions } from '../actions/profile.action';
 
-export interface HistoryStateModel {
-  history: Profile[];
+export interface ProfileStateModel {
+  profile: Profile;
+  
 }
 
-@State<HistoryStateModel>({
-  name: 'history',
+@State<ProfileStateModel>({
+  name: 'profile',
   defaults: {
-    history: [],
+    profile: {},
   },
 })
 @Injectable()
-export class HistoryState {
-  @Action(ProfileActions.RegisterProfileToHistory)
-  registerProfileToHistory(
-    ctx: StateContext<HistoryStateModel>,
-    action: ProfileActions.RegisterProfileToHistory
+export class ProfileState {
+  @Action(ProfileActions.StoreProfile)
+  storeProfile(
+    ctx: StateContext<ProfileStateModel>,
+    action: ProfileActions.StoreProfile
   ) {
-    const state: HistoryStateModel = ctx.getState();
-    ctx.setState({ history: [...state.history, action.payload] });
-    localStorage.setItem(
-      'history',
-      JSON.stringify([...state.history, action.payload])
-    );
-  }
-  @Action(ProfileActions.HydrateHistory)
-  hydrateHistory(ctx: StateContext<HistoryStateModel>) {
-    const profile: Profile[] = JSON.parse(
-      localStorage.getItem('history') || ''
-    );
-    ctx.setState({ history: profile });
-  }
-  @Action(ProfileActions.ClearHistory)
-  clearHistory(ctx: StateContext<HistoryStateModel>) {
-    ctx.patchState({ history: [] });
-    localStorage.setItem('history', JSON.stringify([]));
+    console.log("profile 1")
+    const state: ProfileStateModel = ctx.getState();
+    ctx.setState({
+      profile: action.payload,
+    });
   }
 }

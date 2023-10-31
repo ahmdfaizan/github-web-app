@@ -4,15 +4,16 @@
     <p>Search Team</p>
     <p>Search Results</p>
   </div>
-  <div
-    *ngFor="let profile of (history$ | async)?.history"
-    class="flex-body-container"
-  >
-    <p>{{ profile.user_name }}</p>
-    <app-profile-card
-      class="profile-card"
-      [profile]="profile"
-    ></app-profile-card>
+  <div *ngFor="let profile of (history$ | async)?.history" class="flex-body-container">
+    <p>{{ profile.user_name |titlecase }}</p>
+    <ng-template [ngIf]="profile.isFound">
+      <app-profile-card class="profile-card" [profile]="profile"></app-profile-card>
+    </ng-template>
+    <ng-template [ngIf]="!profile.isFound">
+      <div>
+        <p id="para">Search results not found</p>
+      </div>
+    </ng-template>
   </div>
   <div class="search-button">
     <input type="button" value="Clear Browser History" (click)="clearHistory()" />

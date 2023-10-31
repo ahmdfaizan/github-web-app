@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     padding-top: 10vh;
-    // background-color: rgb(2, 2, 1); //FOCUS COLOR
 }
 
 .flex-dash-sub-conatiner {
@@ -11,8 +10,7 @@
     align-self: center;
     width: fit-content;
 
-    // background-color: rgb(205, 222, 59); //FOCUS COLOR
-    >p {
+    p {
         font-size: 1.3vw;
         color: rgb(117, 117, 117);
         padding: 10px 0px;

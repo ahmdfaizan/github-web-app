@@ -2,7 +2,7 @@
   <p>Search GitHub User</p>
   <div class="search-input">
     <fa-icon [icon]="faSearch"></fa-icon>
-    <input type="text" maxlength="50" minlength="5" />
+    <input type="text" maxlength="50" minlength="5" [(ngModel)]="userName"/>
   </div>
   <div class="search-button">
     <input type="button" value="Search" (click)="registerProfileToHistory()" />

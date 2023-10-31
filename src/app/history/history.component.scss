@@ -1,11 +1,11 @@
 div.flex-history-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    // background-color: rgb(69, 232, 69); //FOCUS COLOR
     font-size: 1.5vw;
     height: 100vh;
+    padding-top: 40px;
 
     >p {
         color: rgb(95, 95, 95);
@@ -18,14 +18,14 @@ div.flex-header-container {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    outline: 1px solid rgb(190, 190, 190);
+    outline: 1px solid rgb(220, 220, 220);
     border-radius: 5px;
     font-size: 1rem;
     width: 50vw;
 
     >p {
         color: rgb(95, 95, 95);
-        background-color: rgb(238, 238, 238);
+        background-color: rgb(245, 245, 245);
         width: 21vw;
         padding: 3vh 2vw;
     }
@@ -35,18 +35,26 @@ div.flex-body-container {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    outline: 1px solid rgb(190, 190, 190);
+    outline: 1px solid rgb(220, 220, 220);
     border-radius: 5px;
     font-size: 1rem;
     width: 50vw;
     margin: 1px;
 
-
-    >p {
+    @mixin para {
         color: rgb(95, 95, 95);
         background-color: rgb(255, 255, 255);
         width: 21vw;
         padding: 3vh 2vw;
+    }
+
+    >p {
+        @include para;
+        color: rgb(120, 120, 120);    }
+
+    #para {
+        @include para;
+        color: rgb(177, 177, 177);
     }
 
     >div.profile-card {
@@ -59,7 +67,7 @@ div.flex-body-container {
 }
 
 div.search-button {
-    
+
     outline: none;
     margin: 20px 0px;
 

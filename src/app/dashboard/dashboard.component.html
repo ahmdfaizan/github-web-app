@@ -2,11 +2,18 @@
   <div class="flex-dash-sub-conatiner">
     <app-search></app-search>
     <p>Search Results</p>
-    <div
-      *ngFor="let profile of (history$ | async)?.history"
-      class="profile-card"
-    >
-      <app-profile-card [profile]="profile"></app-profile-card>
+    <div class="profile-card">
+      <ng-template [ngIf]="(profile$ | async)?.profile.isFound">
+        <app-profile-card [profile]="(profile$ | async)?.profile"></app-profile-card>
+      </ng-template>
+      <ng-template [ngIf]="
+          !(profile$ | async)?.profile.isFound &&
+          (profile$ | async)?.profile.user_name
+        ">
+        <div>
+          <p>No record found!</p>
+        </div>
+      </ng-template>
     </div>
   </div>
 </div>

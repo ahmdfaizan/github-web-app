@@ -1,16 +1,8 @@
 import { Profile } from 'src/app/model/profile.model';
 
 export namespace ProfileActions {
-  export class RegisterProfileToHistory {
-    static readonly type = `[History] Add`;
+  export class StoreProfile {
+    static readonly type = `[Profile] Store`;
     constructor(public payload: Profile) {}
-  }
-  export class HydrateHistory {
-    static readonly type = `[History] Set`;
-    constructor() {}
-  }
-  export class ClearHistory {
-    static readonly type = `[History] Delete`;
-    constructor() {}
   }
 }

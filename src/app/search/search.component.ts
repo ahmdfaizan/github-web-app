@@ -2,8 +2,10 @@ import { Component } from '@angular/core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Store } from '@ngxs/store';
 import { Profile } from '../model/profile.model';
+import { HistoryActions } from '../store/actions/history.action';
+import { GithubService } from '../github.service';
+import { HTTPResponse } from '../model/httpResponse.model';
 import { ProfileActions } from '../store/actions/profile.action';
-
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -11,16 +13,45 @@ import { ProfileActions } from '../store/actions/profile.action';
 })
 export class SearchComponent {
   faSearch = faSearch;
-  constructor(private store: Store) {}
-  registerProfileToHistory() {
-    const profile: Profile = {
-      user_name: 'Faizan Ahmad Zargar',
-      profile_pic:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUELL2iTMsxkbPaMrAKaxl4cHbbF80CsKek4lGOzlR6A&s',
-      profile_link: 'https://www.linkedin.com/in/faizan-zargar-b79b3a1a0/',
-    };
 
-    this.store.dispatch(new ProfileActions.RegisterProfileToHistory(profile));
+  userName: string;
+  profile: Profile;
+
+  constructor(private githubService: GithubService, private store: Store) {}
+  registerProfileToHistory() {
+    if (this.userName) {
+      this.githubService.searchUsers(this.userName).subscribe(
+        (data) => {
+          const { login, name, avatar_url, company, html_url } = <HTTPResponse>(
+            data
+          );
+          this.profile = {
+            user_name: login,
+            full_name: name,
+            profile_pic: avatar_url,
+            company_name: company,
+            profile_link: html_url,
+            isFound: true,
+          };
+          if (login) {
+            this.store.dispatch(new ProfileActions.StoreProfile(this.profile));
+            this.store.dispatch(
+              new HistoryActions.RegisterProfileToHistory(this.profile)
+            );
+          }
+        },
+        (error) => {
+          this.profile = { user_name: this.userName, isFound: false };
+          this.store.dispatch(new ProfileActions.StoreProfile(this.profile));
+          this.store.dispatch(
+            new HistoryActions.RegisterProfileToHistory(this.profile)
+          );
+        }
+      );
+    } else {
+      this.profile = { user_name: this.userName, isFound: false };
+      this.store.dispatch(new ProfileActions.StoreProfile(this.profile));
+    }
   }
 
   searchProfile() {}
