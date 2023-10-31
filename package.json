@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "buidl:deploy-docs": "sudo ng build --output-path docs --base-href /github-web-app/"
   },
   "private": true,
   "dependencies": {
