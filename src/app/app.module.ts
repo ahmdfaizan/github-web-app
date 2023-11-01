@@ -15,6 +15,8 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ProfileState } from './store/states/profile.state';
+import 'zone.js';
+
 @NgModule({
   declarations: [
     AppComponent,

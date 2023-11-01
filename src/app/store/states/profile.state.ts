@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Action, State, StateContext } from '@ngxs/store';
-import { Profile } from 'src/app/model/profile.model';
+import { Profile } from '../../model/profile.model';
 import { ProfileActions } from '../actions/profile.action';
 
 export interface ProfileStateModel {
@@ -21,7 +21,6 @@ export class ProfileState {
     ctx: StateContext<ProfileStateModel>,
     action: ProfileActions.StoreProfile
   ) {
-    console.log("profile 1")
     const state: ProfileStateModel = ctx.getState();
     ctx.setState({
       profile: action.payload,
