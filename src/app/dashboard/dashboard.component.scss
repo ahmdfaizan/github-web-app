@@ -8,16 +8,24 @@
     display: block;
     justify-content: center;
     align-self: center;
-    width: fit-content;
+    width: 400px;
 
     p {
-        font-size: 1.3vw;
+        font-size: 1.3em;
         color: rgb(117, 117, 117);
         padding: 10px 0px;
+    }
+
+    @media screen and (max-width: 480px) {
+        width: 90vw;
     }
 }
 
 .profile-card {
     outline: 1px solid rgb(190, 190, 190);
     border-radius: 5px;
+
+    .no-record-text {
+        padding: 10px;
+    }
 }

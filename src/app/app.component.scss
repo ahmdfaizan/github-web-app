@@ -2,7 +2,6 @@
             display: flex;
             justify-content: flex-end;
             background-color: #f9f8f8;
-            padding-right: 50px;
             border-bottom: 2px solid rgb(226, 226, 226);
             position: fixed;
             top: 0;
@@ -10,6 +9,10 @@
 
             a:hover {
                 background-color: rgb(236, 236, 236);
+            }
+
+            @media screen and (max-width: 480px) {
+                justify-content: center;
             }
         }
 
@@ -27,10 +30,4 @@
 
         .active-link {
             border-bottom: 4px solid rgb(41, 130, 255);
-        }
-
-        @media screen and (max-width: 460px) {
-            nav {
-                padding: 0px;
-            }
         }
