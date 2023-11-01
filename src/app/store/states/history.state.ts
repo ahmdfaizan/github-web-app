@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Action, State, StateContext } from '@ngxs/store';
-import { Profile } from 'src/app/model/profile.model';
+import { Profile } from '../../model/profile.model';
 import { HistoryActions } from '../actions/history.action';
 
 export interface HistoryStateModel {
@@ -20,7 +20,6 @@ export class HistoryState {
     ctx: StateContext<HistoryStateModel>,
     action: HistoryActions.RegisterProfileToHistory
   ) {
-    console.log('history 1');
     const state: HistoryStateModel = ctx.getState();
     const filterdState: HistoryStateModel = { // remove duplicates
       history: state.history.filter(

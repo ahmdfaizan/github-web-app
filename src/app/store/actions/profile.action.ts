@@ -1,4 +1,4 @@
-import { Profile } from 'src/app/model/profile.model';
+import { Profile } from '../../model/profile.model';
 
 export namespace ProfileActions {
   export class StoreProfile {
